@@ -6,7 +6,9 @@ ENV BUILDPATH=github.com/397334469/hello
 ENV GOPATH=/go
 RUN mkdir -p /go/src/${BUILDPATH}
 COPY ./ /go/src/${BUILDPATH}
-RUN cd /go/src/${BUILDPATH} && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go install -v
+WORKDIR /go/src/${BUILDPATH}
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o hello main.go
+RUN cp hello /go/bin/
 
 FROM alpine:latest
 
