@@ -1,7 +1,7 @@
 FROM golang:latest as build-env
 
 ENV GO111MODULE=on
-ENV BUILDPATH=github.com/kplcloud/hello
+ENV BUILDPATH=github.com/397334469/hello
 #ENV GOPROXY=goproxy.io
 ENV GOPATH=/go
 RUN mkdir -p /go/src/${BUILDPATH}
